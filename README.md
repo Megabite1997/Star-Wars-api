@@ -2,7 +2,7 @@
 
 Fetching data from a database, a connection. Sending HTTP requests and work with responses.
 
-`https://swapi.dev/`
+https://swapi.dev/
 
 ## Available Scripts
 
