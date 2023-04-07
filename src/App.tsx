@@ -75,7 +75,9 @@ function App() {
       </section>
       <section>
         {!isLoading && movies.length > 0 && <MovieList movies={movies} />}
-        {movies.length < 1 && <p className="no-movies">There are no movies</p>}
+        {!isLoading && movies.length === 0 && (
+          <p className="no-movies">There are no movies</p>
+        )}
         {isLoading && <p className="loading">Loading...</p>}
       </section>
     </div>
