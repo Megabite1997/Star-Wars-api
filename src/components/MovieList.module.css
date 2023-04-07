@@ -1,7 +1,7 @@
 .unorder-list {
   background-color: white;
-  margin: 0 20%;
+  /* margin: 0 20%; */
   list-style: none;
-  padding: 60px;
+  padding: 0 40px;
   border-radius: 20px;
 }
