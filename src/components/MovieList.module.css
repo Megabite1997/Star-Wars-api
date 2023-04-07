@@ -1,0 +1,7 @@
+.unorder-list {
+  background-color: white;
+  margin: 0 20%;
+  list-style: none;
+  padding: 60px;
+  border-radius: 20px;
+}
