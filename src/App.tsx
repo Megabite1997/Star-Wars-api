@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import "./App.css";
 import MovieList from "./components/MovieList";
@@ -31,7 +31,7 @@ function App() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function fetchMoviesHandler(): Promise<void> {
+  const fetchMoviesHandler = useCallback(async function (): Promise<void> {
     // fetch("https://swapi.dev/api/films/", {
     //   method: "GET", // default method will be 'GET', can avoid of typing
     // })
@@ -54,15 +54,12 @@ function App() {
 
     try {
       // Fetch API doesn't treat error status codes, it will not throw a technical error.
-      const response = await fetch("https://swapi.dev/api/film/");
-
-      // Generate and throwour own error.
+      const response = await fetch("https://swapi.dev/api/films/");
+      // Generate and throw our own error.
       if (!response.ok) {
         throw new Error(`Something went wrong ${response.status}`);
       }
-
       const data = await response.json();
-
       const transformedMovies = data.results.map((movieData: movieDataType) => {
         return {
           id: movieData.episode_id,
@@ -80,7 +77,11 @@ function App() {
       }
     }
     setIsLoading(false);
-  }
+  }, []);
+
+  useEffect(() => {
+    fetchMoviesHandler();
+  }, [fetchMoviesHandler]);
 
   let content = <p>Found no movies</p>;
 
