@@ -7,16 +7,6 @@
   border-radius: 20px;
 }
 
-.button-click {
-  background-color: darkblue;
-  color: white;
-  padding: 20px 40px;
-  border: none;
-  border-radius: 30px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
 .content {
   background-color: white;
   padding: 40px 0;

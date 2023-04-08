@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 
 import "./App.css";
 import MovieList from "./components/MovieList";
+import Button from "./components/Button";
 
 interface movieDataType {
   title: string;
@@ -101,9 +102,7 @@ function App() {
     <div className="App">
       <section>
         <div className="button-section">
-          <button className="button-click" onClick={fetchMoviesHandler}>
-            Fetch Movies
-          </button>
+          <Button text="Fetch Movies" clickFetchMovie={fetchMoviesHandler} />
         </div>
       </section>
       <section>
