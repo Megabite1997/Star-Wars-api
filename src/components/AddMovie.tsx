@@ -3,20 +3,24 @@ import React, { FC, FormEvent, useRef } from "react";
 import classes from "./AddMovie.module.css";
 import Button from "./Button";
 
-interface AddMovieProps {}
+interface moveObject {
+  title: string | undefined;
+  openingText: string | undefined;
+  releaseDate: string | undefined;
+}
 
-const AddMovie: FC<AddMovieProps> = ({}) => {
+const AddMovie: FC = () => {
   const titleRef = useRef<HTMLInputElement>(null);
-  const releaseDateRef = useRef<HTMLInputElement>(null);
   const openingText = useRef<HTMLTextAreaElement>(null);
+  const releaseDateRef = useRef<HTMLInputElement>(null);
 
-  async function addMovieHandler() {
+  async function addMovieHandler(movie: moveObject) {
     try {
       const response = await fetch(
         "https://react-http-aa8a2-default-rtdb.asia-southeast1.firebasedatabase.app/movies.json",
         {
           method: "POST",
-          // body: JSON.stringify(movie),
+          body: JSON.stringify(movie),
           headers: {
             "Content-Type": "application/json",
             // On Firebase is not required, but other rest APIs might require this headers
@@ -42,11 +46,13 @@ const AddMovie: FC<AddMovieProps> = ({}) => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    console.log("titleRef: ", titleRef.current?.value);
-    console.log("releaseDateRef: ", releaseDateRef.current?.value);
-    console.log("openingText: ", openingText.current?.value);
+    const movie = {
+      title: titleRef.current?.value,
+      openingText: openingText.current?.value,
+      releaseDate: releaseDateRef.current?.value,
+    };
 
-    // addMovieHandler();
+    addMovieHandler(movie);
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -56,12 +62,7 @@ const AddMovie: FC<AddMovieProps> = ({}) => {
           <input type="text" ref={titleRef} />
         </div>
         <div className={classes[`input-section`]}>
-          <label>Release Date</label>
-          <input type="text" ref={releaseDateRef} />
-        </div>
-        <div className={classes[`input-section`]}>
           <label>Opening Text</label>
-
           <textarea
             name="opening-text"
             id="opening-text"
@@ -69,6 +70,10 @@ const AddMovie: FC<AddMovieProps> = ({}) => {
             cols={30}
             rows={10}
           />
+        </div>
+        <div className={classes[`input-section`]}>
+          <label>Release Date</label>
+          <input type="text" ref={releaseDateRef} />
         </div>
         <div className={classes[`button-section`]}>
           <Button text="Add Movie" />

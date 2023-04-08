@@ -15,6 +15,9 @@
 
 .input-section label {
   margin-bottom: 5px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: bold;
 }
 
 .input-section input,
