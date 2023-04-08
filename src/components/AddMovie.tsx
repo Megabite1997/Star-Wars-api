@@ -27,13 +27,14 @@ const AddMovie: FC = () => {
           },
         },
       );
-
       if (!response.ok) {
         throw new Error("There is something wrong");
       }
-
       const data = await response.json(); // Convert JSON to JavaScript
       console.log("data: ", data);
+      titleRef.current!.value = "";
+      openingText.current!.value = "";
+      releaseDateRef.current!.value = "";
     } catch (error) {
       if (error instanceof Error) {
         console.log(error.message);
