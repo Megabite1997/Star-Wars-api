@@ -1,0 +1,32 @@
+.container {
+  display: grid;
+  background-color: white;
+  margin: 40px 20%;
+  padding: 40px 20px;
+  border-radius: 20px;
+  gap: 40px;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+}
+
+.input-section label {
+  margin-bottom: 5px;
+}
+
+.input-section input,
+textarea {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.button-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
