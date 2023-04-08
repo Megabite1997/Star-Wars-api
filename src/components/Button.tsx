@@ -4,12 +4,13 @@ import classes from "./Button.module.css";
 
 interface ButtonProps {
   text: string;
-  clickFetchMovie?: () => void;
+
+  clickHandler?: () => Promise<void>;
 }
 
-const Button: FC<ButtonProps> = ({ text, clickFetchMovie }) => {
+const Button: FC<ButtonProps> = ({ text, clickHandler }) => {
   return (
-    <button className={classes[`button-click`]} onClick={clickFetchMovie}>
+    <button className={classes[`button-click`]} onClick={clickHandler}>
       {text}
     </button>
   );

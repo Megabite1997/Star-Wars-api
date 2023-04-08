@@ -106,7 +106,7 @@ function App() {
       </section>
       <section>
         <div className="button-section">
-          <Button text="Fetch Movies" clickFetchMovie={fetchMoviesHandler} />
+          <Button text="Fetch Movies" clickHandler={fetchMoviesHandler} />
         </div>
       </section>
       <section>
