@@ -1,4 +1,4 @@
-# Star Wars API
+# Star Wars API integrate with Firebase
 
 Fetching data from a database, a connection. Sending HTTP requests and work with responses.
 
