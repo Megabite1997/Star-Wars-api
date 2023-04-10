@@ -10,12 +10,12 @@ interface MovieListProps {
 const MovieList: FC<MovieListProps> = ({ movies }) => {
   return (
     <ul className={classes[`unorder-list`]}>
-      {movies.map((movie) => (
+      {movies.map((movie, index) => (
         <Movie
           title={movie.title}
           openingText={movie.openingText}
           id={movie.id}
-          key={movie.id}
+          key={index}
         />
       ))}
     </ul>

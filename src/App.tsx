@@ -81,6 +81,34 @@ function App() {
     setIsLoading(false);
   }, []);
 
+  async function fetchMyMoviesHandler(): Promise<void> {
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        "https://react-http-aa8a2-default-rtdb.asia-southeast1.firebasedatabase.app/movies.json",
+      );
+      if (!response.ok) {
+        throw new Error(`Something went wrong ${response.status}`);
+      }
+      const data = await response.json();
+
+      const myMovies = [];
+      for (let property in data) {
+        myMovies.push(data[property]);
+      }
+
+      setMovies(myMovies);
+    } catch (error) {
+      if (error instanceof Error) {
+        console.log(error.message);
+        setError(error.message);
+      } else {
+        console.log("Unexpected error", error);
+      }
+    }
+    setIsLoading(false);
+  }
+
   useEffect(() => {
     fetchMoviesHandler();
   }, [fetchMoviesHandler]);
@@ -106,7 +134,14 @@ function App() {
       </section>
       <section>
         <div className="button-section">
-          <Button text="Fetch Movies" clickHandler={fetchMoviesHandler} />
+          <Button
+            text="Fetch Star Wars Movies"
+            clickHandler={fetchMoviesHandler}
+          />
+          <Button
+            text="Fetch my movies (Firebase)"
+            clickHandler={fetchMyMoviesHandler}
+          />
         </div>
       </section>
       <section>
