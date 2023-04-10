@@ -14,7 +14,7 @@ const AddMovie: FC = () => {
   const openingText = useRef<HTMLTextAreaElement>(null);
   const releaseDateRef = useRef<HTMLInputElement>(null);
 
-  async function addMovieHandler(movie: moveObject) {
+  async function addMovieHandler(movie: moveObject): Promise<void> {
     try {
       const response = await fetch(
         "https://react-http-aa8a2-default-rtdb.asia-southeast1.firebasedatabase.app/movies.json",
