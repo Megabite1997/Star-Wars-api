@@ -85,7 +85,7 @@ function App() {
     setIsLoading(true);
     try {
       const response = await fetch(
-        "https://react-http-aa8a2-default-rtdb.asia-southeast1.firebasedatabase.app/movies.json",
+        "https://star-wars-api-d2532-default-rtdb.asia-southeast1.firebasedatabase.app/movies.json",
       );
       if (!response.ok) {
         throw new Error(`Something went wrong ${response.status}`);
