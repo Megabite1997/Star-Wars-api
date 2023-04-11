@@ -5,3 +5,9 @@
   padding: 0 40px;
   border-radius: 20px;
 }
+
+@media screen and (max-width: 425px) {
+  .unorder-list {
+    padding: 10px;
+  }
+}

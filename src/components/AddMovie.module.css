@@ -25,6 +25,7 @@ textarea {
   border: 1px solid lightgray;
   border-radius: 5px;
   padding: 10px;
+  width: 100%;
 }
 
 .button-section {
@@ -32,4 +33,15 @@ textarea {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 425px) {
+  .container {
+    margin: 10px;
+    margin-bottom: 40px;
+  }
+
+  .input-section {
+    margin: 0;
+  }
 }

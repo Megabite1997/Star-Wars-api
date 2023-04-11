@@ -16,3 +16,18 @@
   font-size: 20px;
   border-radius: 20px;
 }
+
+@media screen and (max-width: 425px) {
+  .button-section {
+    flex-direction: column;
+    margin: 0 10px;
+    padding: 40px 40px;
+    gap: 40px;
+  }
+
+  .content {
+    margin: 10px;
+    margin-top: 40px;
+    padding: 0;
+  }
+}
