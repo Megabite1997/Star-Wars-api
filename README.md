@@ -10,7 +10,7 @@ https://console.firebase.google.com/
 
 # Here is my website
 
-https://star-wars-api-d2532.firebaseapp.com/
+https://star-wars-api-d2532.web.app/
 
 ## Available Scripts
 
