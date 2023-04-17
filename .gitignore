@@ -12,6 +12,7 @@
 /build
 /.firebase
 .firebaserc
+.env
 
 # misc
 .DS_Store
